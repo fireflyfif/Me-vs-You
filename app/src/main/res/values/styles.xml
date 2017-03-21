@@ -1,24 +1,48 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary theme color of the app (sets background color of app bar) -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <!-- Background color of buttons in the app -->
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorButtonNormal">@color/colorAccent</item>
         <item name="android:navigationBarColor">@color/navigationBarColor</item>
-
-        <item name="android:spinnerStyle">@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar</item>
+        <item name="android:spinnerStyle">@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar
+        </item>
+        <item name="android:textColor">@color/textColorPrimary</item>
         <!--
         <item name="android:statusBarColor">@android:color/transparent</item>
 
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         -->
-</style>
+        <!-- <item name="android:fontFamily">cursive</item> -->
+    </style>
+
+    <!-- Starting Image -->
+    <style name="startImage" parent="AppTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/startImage_height</item>
+        <item name="android:layout_weight">2</item>
+    </style>
+
+    <!-- Edit Texts -->
+    <style name="startImage.Horiz">
+        <item name="android:layout_width">@dimen/startImage_height</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">4</item>
+    </style>
+
+    <style name="editText" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:inputType">textCapWords</item>
+        <item name="android:padding">@dimen/editText_padding</item>
+    </style>
 
     <!-- LinearLayout Vertical -->
     <style name="LinearLayoutVertical" parent="AppTheme">
-        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_width">@dimen/linearVertical_width</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
         <item name="android:orientation">vertical</item>
@@ -30,11 +54,18 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:textColor">#616161</item>
+        <item name="android:textSize">@dimen/teamText_size</item>
         <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:paddingTop">20dp</item>
-        <item name="android:paddingBottom">20dp</item>
+        <item name="android:paddingTop">@dimen/teamText_padding_top_bottom</item>
+        <item name="android:paddingBottom">@dimen/teamText_padding_top_bottom</item>
+    </style>
+
+    <!-- Player Images. -->
+    <style name="playersImages" parent="AppTheme">
+        <item name="android:layout_width">@dimen/imagePlayer_width_height</item>
+        <item name="android:layout_height">@dimen/imagePlayer_width_height</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+
     </style>
 
     <!-- Score TextViews. -->
@@ -42,60 +73,71 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">56sp</item>
-        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">@dimen/scoreText_size</item>
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:padding">20dp</item>
-        <item name="android:layout_marginBottom">24dp</item>
+        <item name="android:padding">@dimen/scoreText_padding</item>
+        <item name="android:layout_marginBottom">16dp</item>
     </style>
 
     <!-- Score Buttons. -->
     <style name="buttons" parent="AppTheme">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginLeft">24dp</item>
-        <item name="android:layout_marginRight">24dp</item>
-        <item name="android:layout_marginBottom">8dp</item>
-        <item name="android:background">#FF8A80</item>
+        <item name="android:layout_width">@dimen/buttons_width</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginLeft">@dimen/buttons_marginLeftRight</item>
+        <item name="android:layout_marginRight">@dimen/buttons_marginLeftRight</item>
+        <item name="android:layout_marginBottom">@dimen/buttons_marginBottom</item>
+        <item name="android:background">@drawable/button1</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:elevation">10dp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="buttons.second">
-        <item name="android:background">#FF5252</item>
+        <item name="android:background">@drawable/button2</item>
     </style>
 
     <style name="buttons.third">
-        <item name="android:background">#FF1744</item>
+        <item name="android:background">@drawable/button3</item>
     </style>
 
-    <!-- Reset Buttons. -->
-    <style name="resetButton" parent="AppTheme">
+    <!-- Winner's text. -->
+    <style name="winnersText" parent="AppTheme">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">10dp</item>
-        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_below">@id/linearHor1</item>
         <item name="android:layout_centerHorizontal">true</item>
-        <item name="android:textAllCaps">true</item>
-        <item name="android:elevation">10dp</item>
-        <item name="android:textStyle">bold</item>
-
+        <item name="android:padding">@dimen/winnersText_padding</item>
+        <item name="android:textSize">@dimen/winnersText_size</item>
+        <item name="android:visibility">visible</item>
     </style>
 
-    <style name="resetButton.End">
-        <item name="android:layout_centerHorizontal">false</item>
-        <item name="android:layout_toRightOf">@id/resetButton</item>
-        <item name="android:layout_alignParentRight">true</item>
+    <!-- LinearLayout Horizontal Bottom. -->
+    <style name="LinearHorizontal" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginTop">@dimen/linearHoriz_marginTop</item>
+    </style>
+
+    <!-- Reset / Start Button. -->
+    <style name="buttons.Reset">
+        <item name="android:layout_margin">@dimen/buttonReset_margin</item>
+        <item name="android:background">@drawable/button_reset</item>
+    </style>
+
+    <!-- Finish Button. -->
+    <style name="buttons.Reset.Blue">
+        <item name="android:background">@drawable/button_blue</item>
     </style>
 
     <!-- Divider. -->
     <style name="divider" parent="AppTheme">
-        <item name="android:layout_width">2dp</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_marginTop">16dp</item>
-        <item name="background">@color/colorPrimary</item>
     </style>
 
 

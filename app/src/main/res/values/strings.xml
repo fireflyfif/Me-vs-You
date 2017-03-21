@@ -1,15 +1,22 @@
 <resources>
     <string name="app_name">Score Keeper</string>
-    <string name="button_one_points">+1 points</string>
-    <string name="button_two_points">+3 points</string>
-    <string name="button_three_points">-1 points</string>
+    <string name="start_image">Starting image with text on it: Let\'s play together!</string>
+    <string name="image_player">Images of the two players.</string>
+    <string name="image_divider">Divider image view.</string>
+    <string name="button_one_points">+1 Up</string>
+    <string name="button_two_points">+3 Up</string>
+    <string name="button_three_points">-1 Down</string>
     <string name="score_point">0</string>
+    <string name="player_1">Player 1</string>
+    <string name="player_2">Player 2</string>
     <string name="team_a_text">Team A</string>
     <string name="team_b_text">Team B</string>
+    <string name="button_start">Start</string>
     <string name="button_reset">Reset</string>
+    <string name="button_finish">Finish</string>
     <string name="choose_teamA">Choose For TeamA</string>
     <string name="choose_teamB">Choose For TeamB</string>
-
+    <string name="winners_text">Who\'s the best?</string>
 
 
 </resources>

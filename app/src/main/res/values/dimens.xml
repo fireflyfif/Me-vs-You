@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="startImage_height">0dp</dimen>
+    <dimen name="editText_padding">20dp</dimen>
+
+    <dimen name="linearVertical_width">0dp</dimen>
+    <dimen name="teamText_size">20sp</dimen>
+    <dimen name="teamText_padding_top_bottom">20dp</dimen>
+
+    <dimen name="imagePlayer_width_height">120dp</dimen>
+
+    <dimen name="scoreText_size">60sp</dimen>
+    <dimen name="scoreText_padding">10dp</dimen>
+
+    <!-- Buttons. -->
+    <dimen name="buttons_width">120dp</dimen>
+    <dimen name="button_height">36dp</dimen>
+    <dimen name="buttons_marginLeftRight">20dp</dimen>
+    <dimen name="buttons_marginBottom">8dp</dimen>
+    <dimen name="buttonReset_margin">10dp</dimen>
+
+    <dimen name="winnersText_size">28sp</dimen>
+    <dimen name="winnersText_padding">10dp</dimen>
+
+    <dimen name="linearHoriz_marginTop">20dp</dimen>
+
+</resources>

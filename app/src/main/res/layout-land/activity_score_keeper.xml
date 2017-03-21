@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/paper_bg"
     tools:context="com.example.android.scorekeeper.MainActivity">
 
+<RelativeLayout
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        android:src="@drawable/bg_01" />
+        android:src="@drawable/bg_01"
+        android:scaleType="centerCrop"/>
+        -->
+
 
     <LinearLayout
         android:id="@+id/linearHor1"
@@ -23,26 +32,18 @@
             android:paddingBottom="10dp">
 
 
+
             <TextView
                 android:id="@+id/teamNameA"
                 style="@style/teamNameText"
                 android:text="@string/team_a_text" />
 
-            <!--
-            <Spinner
-                android:id="@+id/spinner1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:prompt="@array/player1"
-                android:spinnerMode="dialog">
-            </Spinner>
-            -->
 
             <ImageView
                 android:contentDescription="@string/image_player"
                 android:id="@+id/spinnerImage"
                 style="@style/playersImages"
-                android:src="@drawable/pen_drawings_01_" />
+                android:src="@drawable/pen_drawings_01_"/>
 
 
             <TextView
@@ -74,7 +75,7 @@
         <ImageView
             android:contentDescription="@string/image_divider"
             style="@style/divider"
-            android:src="@drawable/divider" />
+            android:src="@drawable/divider"/>
 
         <LinearLayout
             style="@style/LinearLayoutVertical"
@@ -86,18 +87,11 @@
                 style="@style/teamNameText"
                 android:text="@string/team_b_text" />
 
-            <!--
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            </Spinner>
-            -->
 
             <ImageView
                 android:contentDescription="@string/image_player"
                 style="@style/playersImages"
-                android:src="@drawable/pen_drawings_02_" />
+                android:src="@drawable/pen_drawings_02_"/>
 
             <TextView
                 android:id="@+id/team_b_score"
@@ -134,6 +128,7 @@
 
     <LinearLayout
         android:id="@+id/linearHor2"
+        android:layout_below="@id/winnerText"
         style="@style/LinearHorizontal">
 
         <Button
@@ -147,7 +142,11 @@
             android:onClick="finish"
             android:text="@string/button_finish" />
 
+
     </LinearLayout>
 
 
+
+
 </RelativeLayout>
+</ScrollView>

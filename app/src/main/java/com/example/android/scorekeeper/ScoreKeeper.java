@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,12 +20,12 @@ public class ScoreKeeper extends AppCompatActivity {
     // Tracks the score for Team B
     int scoreTeamB;
 
-    // Need to be declare the edit text
-    private TextView nameA;
-    private TextView nameB;
+    // Need to declare the edit text
+//    private TextView nameA;
+//    private TextView nameB;
     private String gamer1;
     private String gamer2;
-    private String winningPlayer;
+
 
 
     @Override
@@ -55,13 +54,29 @@ public class ScoreKeeper extends AppCompatActivity {
         // Get the message from the intent
         Intent intent = getIntent();
 
+
         gamer1 = intent.getStringExtra(PLAYER_1);
+//        if (!gamer1.equals("")) {
+//            gamer1.putExtra("Player A");
+//        }
         gamer2 = intent.getStringExtra(PLAYER_2);
+
+        TextView nameA;
+        TextView nameB;
 
         nameA = (TextView) findViewById(R.id.teamNameA);
         nameB = (TextView) findViewById(R.id.teamNameB);
         nameA.setText(gamer1);
         nameB.setText(gamer2);
+
+//        Bundle extras = getIntent().getExtras();
+//        if (gamer1 != null) {
+//            String playerA = extras.getString(PLAYER_A);
+//
+//        }
+//        if (gamer2 != null) {
+//            String playerB = extras.getString(PLAYER_B);
+//        }
 
         // Welcome message
         // TODO Make message with center gravity
@@ -165,30 +180,41 @@ public class ScoreKeeper extends AppCompatActivity {
         scoreTeamB = 0;
         displayForTeamA(scoreTeamA);
         displayForTeamB(scoreTeamB);
+
+        Toast.makeText(this, "Here we go again " + gamer1 + " and " + gamer2,
+                Toast.LENGTH_SHORT).show();
     }
 
     public void finish(View view) {
 
+        String winningPlayer;
+
         if (scoreTeamA > scoreTeamB) {
             winningPlayer = gamer1;
-        } else {
+            // Winner text
+            TextView winnerText = (TextView) findViewById(R.id.winnerText);
+            winnerText.setText(winningPlayer + " wins!");
+        } else if (scoreTeamA < scoreTeamB){
             winningPlayer = gamer2;
+            // Winner text
+            TextView winnerText = (TextView) findViewById(R.id.winnerText);
+            winnerText.setText(winningPlayer + " wins!");
+        } else {
+            TextView winnerText = (TextView) findViewById(R.id.winnerText);
+            winnerText.setText(" ");
+            Toast.makeText(this, "The score between " + gamer1 + " and " + gamer2 + " is equal!",
+                    Toast.LENGTH_LONG).show();
         }
 
-        ImageView winnerImage = (ImageView) findViewById(R.id.winnerImage);
-        winnerImage.setImageResource(R.drawable.avatar_4);
+        // Try to show a Winning image, no success for now
+//        ImageView winnerImage = (ImageView) findViewById(R.id.winnerImage);
+//        winnerImage.setImageResource(R.drawable.avatar_4);
 
         // Set image to be visible
 
-        TextView winnerText = (TextView) findViewById(R.id.winnerText);
-        winnerText.setText("You win, " + winningPlayer + "!");
-
-
-
-        //if (scoreTeamB == scoreTeamB) {
-            // Do something
-        //}
-
+        // Winner text
+//        TextView winnerText = (TextView) findViewById(R.id.winnerText);
+//        winnerText.setText(winningPlayer + " wins!");
 
     }
 

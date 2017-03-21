@@ -3,32 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/paper_bg"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context="com.example.android.scorekeeper.MainActivity">
 
+    <ImageView
+        style="@style/startImage"
+        android:contentDescription="@string/start_image"
+        android:src="@drawable/pen_drawings_start_5" />
+
     <EditText
         android:id="@+id/player_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Player 1"
-        android:inputType="textCapWords"
-        android:padding="20dp" />
+        style="@style/editText"
+        android:hint="@string/player_1" />
 
     <EditText
         android:id="@+id/player_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Player 2"
-        android:inputType="textCapWords"
-        android:padding="20dp" />
+        style="@style/editText"
+        android:hint="@string/player_2" />
 
     <Button
         android:id="@+id/start_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        style="@style/buttons.Reset"
         android:onClick="buttonStart"
-        android:text="Start" />
+        android:text="@string/button_start" />
 
 </LinearLayout>
