@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/paper_bg"
+    android:background="@drawable/bg_04"
     android:gravity="center"
     android:orientation="horizontal"
     tools:context="com.example.android.scorekeeper.MainActivity">
@@ -11,7 +11,7 @@
     <ImageView
         style="@style/startImage.Horiz"
         android:contentDescription="@string/start_image"
-        android:src="@drawable/pen_drawings_start_5" />
+        android:src="@drawable/pen_drawings_start" />
 
     <LinearLayout
         android:layout_width="0dp"

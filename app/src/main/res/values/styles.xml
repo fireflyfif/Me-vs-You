@@ -131,7 +131,7 @@
 
     <!-- Finish Button. -->
     <style name="buttons.Reset.Blue">
-        <item name="android:background">@drawable/button_blue</item>
+        <item name="android:background">@drawable/button_finish</item>
     </style>
 
     <!-- Divider. -->

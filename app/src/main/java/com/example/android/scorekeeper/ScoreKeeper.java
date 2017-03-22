@@ -20,9 +20,6 @@ public class ScoreKeeper extends AppCompatActivity {
     // Tracks the score for Team B
     int scoreTeamB;
 
-    // Need to declare the edit text
-//    private TextView nameA;
-//    private TextView nameB;
     private String gamer1;
     private String gamer2;
 
@@ -45,20 +42,12 @@ public class ScoreKeeper extends AppCompatActivity {
             displayForTeamB(scoreTeamB);
         }
 
-        // Always call the superclass so it can save the view hierarchy state
-        // This causes the app to crash!
-        // super.onSaveInstanceState(savedInstanceState);
-
-
 
         // Get the message from the intent
         Intent intent = getIntent();
 
 
         gamer1 = intent.getStringExtra(PLAYER_1);
-//        if (!gamer1.equals("")) {
-//            gamer1.putExtra("Player A");
-//        }
         gamer2 = intent.getStringExtra(PLAYER_2);
 
         TextView nameA;
@@ -69,17 +58,8 @@ public class ScoreKeeper extends AppCompatActivity {
         nameA.setText(gamer1);
         nameB.setText(gamer2);
 
-//        Bundle extras = getIntent().getExtras();
-//        if (gamer1 != null) {
-//            String playerA = extras.getString(PLAYER_A);
-//
-//        }
-//        if (gamer2 != null) {
-//            String playerB = extras.getString(PLAYER_B);
-//        }
 
         // Welcome message
-        // TODO Make message with center gravity
         Toast.makeText(this, "Prepare for the battle: " + "\n" + gamer1 + " vs " + gamer2,
                 Toast.LENGTH_LONG).show();
     }
@@ -95,10 +75,7 @@ public class ScoreKeeper extends AppCompatActivity {
             Toast.makeText(this, "That sucks, " + gamer1, Toast.LENGTH_SHORT).show();
         }
 
-        // If the button +3 is pushed two in a row
-//        if (scoreTeamB ) {
-//            Toast.makeText(this, "You're doing great!", Toast.LENGTH_SHORT).show();
-//       }
+
 
         if (scoreTeamA >= 20) {
             Toast.makeText(this, "Legendary " + gamer1, Toast.LENGTH_SHORT).show();
@@ -121,6 +98,11 @@ public class ScoreKeeper extends AppCompatActivity {
     public void submitThreePointsForTeamA(View view) {
         scoreTeamA += 3;
         displayForTeamA(scoreTeamA);
+
+        // If the button +3 is pushed two times in a row
+//        if (scoreTeamB ) {
+//            Toast.makeText(this, "You're doing great!", Toast.LENGTH_SHORT).show();
+//       }
     }
 
     /**
@@ -141,9 +123,6 @@ public class ScoreKeeper extends AppCompatActivity {
             Toast.makeText(this, "That sucks " + gamer2, Toast.LENGTH_SHORT).show();
         }
 
-//        if (scoreTeamB >= 9) {
-//            Toast.makeText(this, "You're doing great!", Toast.LENGTH_SHORT).show();
-//        }
         if (scoreTeamB >= 20) {
             Toast.makeText(this, "Legendary " + gamer2, Toast.LENGTH_SHORT).show();
         }
@@ -175,16 +154,31 @@ public class ScoreKeeper extends AppCompatActivity {
         displayForTeamB(scoreTeamB);
     }
 
+    /**
+     * Reset Button.
+     * Display default text for the winners text
+     * Display Toast message
+     */
     public void reset(View view) {
         scoreTeamA = 0;
         scoreTeamB = 0;
         displayForTeamA(scoreTeamA);
         displayForTeamB(scoreTeamB);
 
+        // Reset winners text
+        // Not working by using resources R.string.winners_text
+        TextView winnerText = (TextView) findViewById(R.id.winnerText);
+        winnerText.setText("Who\'s the best?");
+
+        // Toast message for a new game
         Toast.makeText(this, "Here we go again " + gamer1 + " and " + gamer2,
                 Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Finish Button.
+     * Display three possible ways of ending the game
+     */
     public void finish(View view) {
 
         String winningPlayer;
@@ -194,7 +188,7 @@ public class ScoreKeeper extends AppCompatActivity {
             // Winner text
             TextView winnerText = (TextView) findViewById(R.id.winnerText);
             winnerText.setText(winningPlayer + " wins!");
-        } else if (scoreTeamA < scoreTeamB){
+        } else if (scoreTeamA < scoreTeamB) {
             winningPlayer = gamer2;
             // Winner text
             TextView winnerText = (TextView) findViewById(R.id.winnerText);
@@ -206,15 +200,12 @@ public class ScoreKeeper extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }
 
-        // Try to show a Winning image, no success for now
+        /** TODO
+         * Show a pop up Winning image
+         * Set image to be visible
+         */
 //        ImageView winnerImage = (ImageView) findViewById(R.id.winnerImage);
 //        winnerImage.setImageResource(R.drawable.avatar_4);
-
-        // Set image to be visible
-
-        // Winner text
-//        TextView winnerText = (TextView) findViewById(R.id.winnerText);
-//        winnerText.setText(winningPlayer + " wins!");
 
     }
 
