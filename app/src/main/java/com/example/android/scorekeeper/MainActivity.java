@@ -36,10 +36,13 @@ public class MainActivity extends AppCompatActivity {
         // If name is not logged
         if (gamer1.isEmpty()) {
             //continue with the default text
+            //gamer1 = "Team A";
+
         }
 
         if (gamer2.isEmpty()) {
             //continue with the default text
+            //gamer2 = "Team B";
         }
     }
 }

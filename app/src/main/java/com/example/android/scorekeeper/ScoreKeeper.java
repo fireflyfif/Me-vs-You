@@ -53,10 +53,21 @@ public class ScoreKeeper extends AppCompatActivity {
         TextView nameA;
         TextView nameB;
 
+
+
         nameA = (TextView) findViewById(R.id.teamNameA);
         nameB = (TextView) findViewById(R.id.teamNameB);
         nameA.setText(gamer1);
         nameB.setText(gamer2);
+
+        // If name fields are empty
+        if (gamer1.isEmpty()) {
+            nameA.setText("Team A");
+        }
+
+        if (gamer2.isEmpty()) {
+            nameB.setText("Team B");
+        }
 
 
         // Welcome message
@@ -200,10 +211,9 @@ public class ScoreKeeper extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }
 
-        /** TODO
-         * Show a pop up Winning image
-         * Set image to be visible
-         */
+        // TODO
+        // Show a pop up Winning image
+        // Set image to be visible
 //        ImageView winnerImage = (ImageView) findViewById(R.id.winnerImage);
 //        winnerImage.setImageResource(R.drawable.avatar_4);
 
