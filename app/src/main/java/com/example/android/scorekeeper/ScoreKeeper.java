@@ -12,13 +12,14 @@ import static com.example.android.scorekeeper.MainActivity.PLAYER_2;
 
 public class ScoreKeeper extends AppCompatActivity {
 
-    static final String STATE_SCORE_A = "saveTeamAscore";
-    static final String STATE_SCORE_B = "saveTeamBscore";
+    public static final String STATE_SCORE_A = "save_team_A_score";
+    public static final String STATE_SCORE_B = "save_team_B_score";
+    public static final String SAVE_NAME_A = "save_name_A";
+    public static final String SAVE_NAME_B = "save_name_b";
 
-    // Tracks the score for Team A
-    int scoreTeamA;
-    // Tracks the score for Team B
-    int scoreTeamB;
+
+    int scoreTeamA; // Tracks the score for Team A
+    int scoreTeamB; // Tracks the score for Team B
 
     private String gamer1;
     private String gamer2;
@@ -40,39 +41,49 @@ public class ScoreKeeper extends AppCompatActivity {
             scoreTeamB = savedInstanceState.getInt(STATE_SCORE_B, scoreTeamB);
             displayForTeamA(scoreTeamA);
             displayForTeamB(scoreTeamB);
+
         }
+
+        TextView nameA = (TextView) findViewById(R.id.teamNameA);
+        TextView nameB =(TextView) findViewById(R.id.teamNameB);
 
 
         // Get the message from the intent
         Intent intent = getIntent();
-
-
         gamer1 = intent.getStringExtra(PLAYER_1);
         gamer2 = intent.getStringExtra(PLAYER_2);
 
-        TextView nameA;
-        TextView nameB;
-
-
-
-        nameA = (TextView) findViewById(R.id.teamNameA);
-        nameB = (TextView) findViewById(R.id.teamNameB);
         nameA.setText(gamer1);
         nameB.setText(gamer2);
 
-        // If name fields are empty
-        if (gamer1.isEmpty()) {
-            nameA.setText("Team A");
-        }
-
-        if (gamer2.isEmpty()) {
-            nameB.setText("Team B");
-        }
-
-
         // Welcome message
-        Toast.makeText(this, "Prepare for the battle: " + "\n" + gamer1 + " vs " + gamer2,
-                Toast.LENGTH_LONG).show();
+        Toast.makeText(this, getString(R.string.start_game_prepare) + gamer1 +
+                        getString(R.string.start_game_vs) + gamer2, Toast.LENGTH_LONG).show();
+    }
+
+    // Save state when rotating
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+
+        outState.putInt(STATE_SCORE_A, scoreTeamA);
+        outState.putInt(STATE_SCORE_B, scoreTeamB);
+        outState.putString(SAVE_NAME_A, gamer1);
+        outState.putString(SAVE_NAME_B, gamer2);
+
+        super.onSaveInstanceState(outState);
+
+    }
+
+    // Restore state when rotating
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+
+        savedInstanceState.getInt(STATE_SCORE_A);
+        savedInstanceState.getInt(STATE_SCORE_B);
+        savedInstanceState.getString(SAVE_NAME_A);
+        savedInstanceState.getString(SAVE_NAME_B);
+
+        super.onRestoreInstanceState(savedInstanceState);
     }
 
 
@@ -83,13 +94,11 @@ public class ScoreKeeper extends AppCompatActivity {
         TextView scoreView = (TextView) findViewById(R.id.team_a_score);
 
         if (scoreTeamA <= -1) {
-            Toast.makeText(this, "That sucks, " + gamer1, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.msg_sucks) + gamer1, Toast.LENGTH_SHORT).show();
         }
 
-
-
         if (scoreTeamA >= 20) {
-            Toast.makeText(this, "Legendary " + gamer1, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.msg_legendary) + gamer1, Toast.LENGTH_SHORT).show();
         }
 
         scoreView.setText(String.valueOf(score));
@@ -109,11 +118,6 @@ public class ScoreKeeper extends AppCompatActivity {
     public void submitThreePointsForTeamA(View view) {
         scoreTeamA += 3;
         displayForTeamA(scoreTeamA);
-
-        // If the button +3 is pushed two times in a row
-//        if (scoreTeamB ) {
-//            Toast.makeText(this, "You're doing great!", Toast.LENGTH_SHORT).show();
-//       }
     }
 
     /**
@@ -131,11 +135,11 @@ public class ScoreKeeper extends AppCompatActivity {
         TextView scoreView = (TextView) findViewById(R.id.team_b_score);
 
         if (scoreTeamB <= -1) {
-            Toast.makeText(this, "That sucks " + gamer2, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.msg_sucks) + gamer2, Toast.LENGTH_SHORT).show();
         }
 
         if (scoreTeamB >= 20) {
-            Toast.makeText(this, "Legendary " + gamer2, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.msg_legendary) + gamer2, Toast.LENGTH_SHORT).show();
         }
 
         scoreView.setText(String.valueOf(score));
@@ -176,13 +180,8 @@ public class ScoreKeeper extends AppCompatActivity {
         displayForTeamA(scoreTeamA);
         displayForTeamB(scoreTeamB);
 
-        // Reset winners text
-        // Not working by using resources R.string.winners_text
-        TextView winnerText = (TextView) findViewById(R.id.winnerText);
-        winnerText.setText("Who\'s the best?");
-
         // Toast message for a new game
-        Toast.makeText(this, "Here we go again " + gamer1 + " and " + gamer2,
+        Toast.makeText(this, getString(R.string.msg_again) + gamer1 + getString(R.string.msg_and) + gamer2,
                 Toast.LENGTH_SHORT).show();
     }
 
@@ -191,52 +190,29 @@ public class ScoreKeeper extends AppCompatActivity {
      * Display three possible ways of ending the game
      */
     public void finish(View view) {
-
         String winningPlayer;
 
         if (scoreTeamA > scoreTeamB) {
             winningPlayer = gamer1;
-            // Winner text
-            TextView winnerText = (TextView) findViewById(R.id.winnerText);
-            winnerText.setText(winningPlayer + " wins!");
+
+            // Winner Player 1 Toast message
+            Toast.makeText(this, winningPlayer + getString(R.string.winner_part_text),
+                    Toast.LENGTH_LONG).show();
+
         } else if (scoreTeamA < scoreTeamB) {
             winningPlayer = gamer2;
-            // Winner text
-            TextView winnerText = (TextView) findViewById(R.id.winnerText);
-            winnerText.setText(winningPlayer + " wins!");
+
+            // Winner Player 2 Toast message
+            Toast.makeText(this, winningPlayer + getString(R.string.winner_part_text),
+                    Toast.LENGTH_LONG).show();
+
         } else {
-            TextView winnerText = (TextView) findViewById(R.id.winnerText);
-            winnerText.setText(" ");
-            Toast.makeText(this, "The score between " + gamer1 + " and " + gamer2 + " is equal!",
+            // Equal Result Toast message
+            Toast.makeText(this, getString(R.string.msg_equal_score) + gamer1 +
+                            getString(R.string.msg_and) + gamer2 + getString(R.string.msg_is_equal),
                     Toast.LENGTH_LONG).show();
         }
 
-        // TODO
-        // Show a pop up Winning image
-        // Set image to be visible
-//        ImageView winnerImage = (ImageView) findViewById(R.id.winnerImage);
-//        winnerImage.setImageResource(R.drawable.avatar_4);
-
     }
 
-
-    // Save state when rotating
-    @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-
-        savedInstanceState.putInt(STATE_SCORE_A, scoreTeamA);
-        savedInstanceState.putInt(STATE_SCORE_B, scoreTeamB);
-
-        super.onSaveInstanceState(savedInstanceState);
-
-    }
-
-    // Restore state when rotating
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-
-        savedInstanceState.getInt(STATE_SCORE_A);
-        savedInstanceState.getInt(STATE_SCORE_B);
-    }
 }

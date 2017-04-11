@@ -28,15 +28,6 @@
                 style="@style/teamNameText"
                 android:text="@string/team_a_text" />
 
-            <!--
-            <Spinner
-                android:id="@+id/spinner1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:prompt="@array/player1"
-                android:spinnerMode="dialog">
-            </Spinner>
-            -->
 
             <ImageView
                 android:contentDescription="@string/image_player"
@@ -86,14 +77,6 @@
                 style="@style/teamNameText"
                 android:text="@string/team_b_text" />
 
-            <!--
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            </Spinner>
-            -->
-
             <ImageView
                 android:contentDescription="@string/image_player"
                 style="@style/playersImages"
@@ -126,15 +109,11 @@
         </LinearLayout>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/winnerText"
-        style="@style/winnersText"
-        android:text="@string/winners_text" />
-
 
     <LinearLayout
         android:id="@+id/linearHor2"
-        style="@style/LinearHorizontal">
+        style="@style/LinearHorizontal"
+        android:layout_alignParentBottom="true">
 
         <Button
             android:id="@+id/resetButton"

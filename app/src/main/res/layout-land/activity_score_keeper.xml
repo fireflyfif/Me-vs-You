@@ -1,152 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/bg_04"
     tools:context="com.example.android.scorekeeper.MainActivity">
 
-<RelativeLayout
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <!--
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/bg_01"
-        android:scaleType="centerCrop"/>
-        -->
-
-
     <LinearLayout
-        android:id="@+id/linearHor1"
+        android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <LinearLayout
-            style="@style/LinearLayoutVertical"
-            android:paddingBottom="10dp">
+            android:id="@+id/linearHor1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                style="@style/LinearLayoutVertical"
+                android:paddingBottom="10dp">
 
 
+                <TextView
+                    android:id="@+id/teamNameA"
+                    style="@style/teamNameText"
+                    android:text="@string/team_a_text" />
 
-            <TextView
-                android:id="@+id/teamNameA"
-                style="@style/teamNameText"
-                android:text="@string/team_a_text" />
+
+                <ImageView
+                    android:id="@+id/spinnerImage"
+                    style="@style/playersImages"
+                    android:contentDescription="@string/image_player"
+                    android:src="@drawable/pen_drawings_01_" />
 
 
+                <TextView
+                    android:id="@+id/team_a_score"
+                    style="@style/scoreText"
+                    android:text="@string/score_point" />
+
+                <Button
+                    android:id="@+id/addThreePoints"
+                    style="@style/buttons"
+                    android:onClick="submitOnePointForTeamA"
+                    android:text="@string/button_one_points" />
+
+                <Button
+                    android:id="@+id/addTwoPoints"
+                    style="@style/buttons.second"
+                    android:onClick="submitThreePointsForTeamA"
+                    android:text="@string/button_two_points" />
+
+                <Button
+                    android:id="@+id/threeThrow"
+                    style="@style/buttons.third"
+                    android:onClick="submitMinusOnePointForTeamA"
+                    android:text="@string/button_three_points" />
+
+            </LinearLayout>
+
+            <!-- Divider. -->
             <ImageView
-                android:contentDescription="@string/image_player"
-                android:id="@+id/spinnerImage"
-                style="@style/playersImages"
-                android:src="@drawable/pen_drawings_01_"/>
+                style="@style/divider"
+                android:contentDescription="@string/image_divider"
+                android:src="@drawable/divider" />
+
+            <LinearLayout
+                style="@style/LinearLayoutVertical"
+                android:paddingBottom="10dp">
 
 
-            <TextView
-                android:id="@+id/team_a_score"
-                style="@style/scoreText"
-                android:text="@string/score_point" />
+                <TextView
+                    android:id="@+id/teamNameB"
+                    style="@style/teamNameText"
+                    android:text="@string/team_b_text" />
+
+
+                <ImageView
+                    style="@style/playersImages"
+                    android:contentDescription="@string/image_player"
+                    android:src="@drawable/pen_drawings_02_" />
+
+                <TextView
+                    android:id="@+id/team_b_score"
+                    style="@style/scoreText"
+                    android:text="@string/score_point" />
+
+                <Button
+                    android:id="@+id/addThreePointsB"
+                    style="@style/buttons"
+                    android:onClick="submitOnePointForTeamB"
+                    android:text="@string/button_one_points" />
+
+                <Button
+                    android:id="@+id/addTwoPointsB"
+                    style="@style/buttons.second"
+                    android:onClick="submitThreePointsForTeamB"
+                    android:text="@string/button_two_points" />
+
+                <Button
+                    android:id="@+id/threeThrowB"
+                    style="@style/buttons.third"
+                    android:onClick="submitMinusOnePointForTeamB"
+                    android:text="@string/button_three_points" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linearHor2"
+            style="@style/LinearHorizontal">
 
             <Button
-                android:id="@+id/addThreePoints"
-                style="@style/buttons"
-                android:onClick="submitOnePointForTeamA"
-                android:text="@string/button_one_points" />
+                android:id="@+id/resetButton"
+                style="@style/buttons.Reset"
+                android:onClick="reset"
+                android:text="@string/button_reset" />
 
             <Button
-                android:id="@+id/addTwoPoints"
-                style="@style/buttons.second"
-                android:onClick="submitThreePointsForTeamA"
-                android:text="@string/button_two_points" />
+                style="@style/buttons.Reset.Blue"
+                android:onClick="finish"
+                android:text="@string/button_finish" />
 
-            <Button
-                android:id="@+id/threeThrow"
-                style="@style/buttons.third"
-                android:onClick="submitMinusOnePointForTeamA"
-                android:text="@string/button_three_points" />
 
         </LinearLayout>
 
-        <!-- Divider. -->
-        <ImageView
-            android:contentDescription="@string/image_divider"
-            style="@style/divider"
-            android:src="@drawable/divider"/>
-
-        <LinearLayout
-            style="@style/LinearLayoutVertical"
-            android:paddingBottom="10dp">
-
-
-            <TextView
-                android:id="@+id/teamNameB"
-                style="@style/teamNameText"
-                android:text="@string/team_b_text" />
-
-
-            <ImageView
-                android:contentDescription="@string/image_player"
-                style="@style/playersImages"
-                android:src="@drawable/pen_drawings_02_"/>
-
-            <TextView
-                android:id="@+id/team_b_score"
-                style="@style/scoreText"
-                android:text="@string/score_point" />
-
-            <Button
-                android:id="@+id/addThreePointsB"
-                style="@style/buttons"
-                android:onClick="submitOnePointForTeamB"
-                android:text="@string/button_one_points" />
-
-            <Button
-                android:id="@+id/addTwoPointsB"
-                style="@style/buttons.second"
-                android:onClick="submitThreePointsForTeamB"
-                android:text="@string/button_two_points" />
-
-            <Button
-                android:id="@+id/threeThrowB"
-                style="@style/buttons.third"
-                android:onClick="submitMinusOnePointForTeamB"
-                android:text="@string/button_three_points" />
-
-
-        </LinearLayout>
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/winnerText"
-        style="@style/winnersText"
-        android:text="@string/winners_text" />
-
-
-    <LinearLayout
-        android:id="@+id/linearHor2"
-        android:layout_below="@id/winnerText"
-        style="@style/LinearHorizontal">
-
-        <Button
-            android:id="@+id/resetButton"
-            style="@style/buttons.Reset"
-            android:onClick="reset"
-            android:text="@string/button_reset" />
-
-        <Button
-            style="@style/buttons.Reset.Blue"
-            android:onClick="finish"
-            android:text="@string/button_finish" />
-
 
     </LinearLayout>
-
-
-
-
-</RelativeLayout>
 </ScrollView>

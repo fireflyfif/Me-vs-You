@@ -3,20 +3,41 @@
     <string name="start_image">Starting image with text on it: Let\'s play together!</string>
     <string name="image_player">Images of the two players.</string>
     <string name="image_divider">Divider image view.</string>
+
+    <!-- Toast messages -->
+    <string name="start_quiz_noName">Please, choose names for the players / teams.</string>
+    <string name="start_game_prepare">Prepare for the battle:\n</string>
+    <string name="start_game_vs">&#160;vs&#160;</string>
+    <string name="msg_sucks">That sucks,&#160;</string>
+    <string name="msg_legendary">Legendary,&#160;</string>
+    <string name="msg_again">Here we go again&#160;</string>
+    <string name="msg_and">&#160;and&#160;</string>
+    <string name="winner_part_text">&#160;wins!\nNice work!</string>
+    <string name="msg_equal_score">The score between&#160;</string>
+    <string name="msg_is_equal">&#160;is equal!</string>
+
+    <!-- Buttons -->
     <string name="button_one_points">+1 Up</string>
     <string name="button_two_points">+3 Up</string>
     <string name="button_three_points">-1 Down</string>
     <string name="score_point">0</string>
-    <string name="player_1">Player 1</string>
-    <string name="player_2">Player 2</string>
-    <string name="team_a_text">Team A</string>
-    <string name="team_b_text">Team B</string>
     <string name="button_start">Start</string>
     <string name="button_reset">Reset</string>
     <string name="button_finish">Finish</string>
+
+    <string name="player_1">Player 1</string>
+    <string name="player_2">Player 2</string>
+
+    <!-- Teams text -->
+    <string name="team_a_text">Team A</string>
+    <string name="team_b_text">Team B</string>
+
     <string name="choose_teamA">Choose For TeamA</string>
     <string name="choose_teamB">Choose For TeamB</string>
-    <string name="winners_text">Who\'s the best?</string>
+
+    <string name="team_a_wins">Team A wins!</string>
+    <string name="team_b_wins">Team B wins!</string>
+
 
 
 </resources>
