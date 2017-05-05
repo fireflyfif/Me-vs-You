@@ -25,7 +25,6 @@ public class ScoreKeeper extends AppCompatActivity {
     private String gamer2;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,9 +44,8 @@ public class ScoreKeeper extends AppCompatActivity {
         }
 
         TextView nameA = (TextView) findViewById(R.id.teamNameA);
-        TextView nameB =(TextView) findViewById(R.id.teamNameB);
-
-
+        TextView nameB = (TextView) findViewById(R.id.teamNameB);
+        
         // Get the message from the intent
         Intent intent = getIntent();
         gamer1 = intent.getStringExtra(PLAYER_1);
@@ -58,7 +56,7 @@ public class ScoreKeeper extends AppCompatActivity {
 
         // Welcome message
         Toast.makeText(this, getString(R.string.start_game_prepare) + gamer1 +
-                        getString(R.string.start_game_vs) + gamer2, Toast.LENGTH_LONG).show();
+                getString(R.string.start_game_vs) + gamer2, Toast.LENGTH_LONG).show();
     }
 
     // Save state when rotating
