@@ -4,13 +4,8 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_04"
     tools:context="com.example.android.scorekeeper.MainActivity">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        android:src="@drawable/bg_04" />
 
     <LinearLayout
         android:id="@+id/linearHor1"
@@ -18,23 +13,18 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <LinearLayout
-            style="@style/LinearLayoutVertical"
-            android:paddingBottom="10dp">
-
+        <LinearLayout style="@style/LinearLayoutVertical">
 
             <TextView
                 android:id="@+id/teamNameA"
                 style="@style/teamNameText"
                 android:text="@string/team_a_text" />
 
-
             <ImageView
-                android:contentDescription="@string/image_player"
                 android:id="@+id/spinnerImage"
                 style="@style/playersImages"
+                android:contentDescription="@string/image_player"
                 android:src="@drawable/pen_drawings_01_" />
-
 
             <TextView
                 android:id="@+id/team_a_score"
@@ -63,14 +53,11 @@
 
         <!-- Divider. -->
         <ImageView
-            android:contentDescription="@string/image_divider"
             style="@style/divider"
+            android:contentDescription="@string/image_divider"
             android:src="@drawable/divider" />
 
-        <LinearLayout
-            style="@style/LinearLayoutVertical"
-            android:paddingBottom="10dp">
-
+        <LinearLayout style="@style/LinearLayoutVertical">
 
             <TextView
                 android:id="@+id/teamNameB"
@@ -78,8 +65,8 @@
                 android:text="@string/team_b_text" />
 
             <ImageView
-                android:contentDescription="@string/image_player"
                 style="@style/playersImages"
+                android:contentDescription="@string/image_player"
                 android:src="@drawable/pen_drawings_02_" />
 
             <TextView
@@ -105,10 +92,8 @@
                 android:onClick="submitMinusOnePointForTeamB"
                 android:text="@string/button_three_points" />
 
-
         </LinearLayout>
     </LinearLayout>
-
 
     <LinearLayout
         android:id="@+id/linearHor2"
@@ -127,6 +112,5 @@
             android:text="@string/button_finish" />
 
     </LinearLayout>
-
 
 </RelativeLayout>

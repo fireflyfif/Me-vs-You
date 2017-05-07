@@ -23,6 +23,7 @@
     <dimen name="winnersText_size">28sp</dimen>
     <dimen name="winnersText_padding">10dp</dimen>
 
+    <dimen name="linearVertical_padding">10dp</dimen>
     <dimen name="linearHoriz_marginTop">20dp</dimen>
 
 </resources>

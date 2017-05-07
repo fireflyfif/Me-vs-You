@@ -17,7 +17,6 @@ public class ScoreKeeper extends AppCompatActivity {
     public static final String SAVE_NAME_A = "save_name_A";
     public static final String SAVE_NAME_B = "save_name_b";
 
-
     int scoreTeamA; // Tracks the score for Team A
     int scoreTeamB; // Tracks the score for Team B
 
@@ -33,7 +32,6 @@ public class ScoreKeeper extends AppCompatActivity {
         displayForTeamA(0);
         displayForTeamB(0);
 
-
         // Save the user's current game state
         if (savedInstanceState != null) {
             scoreTeamA = savedInstanceState.getInt(STATE_SCORE_A, scoreTeamA);
@@ -45,7 +43,7 @@ public class ScoreKeeper extends AppCompatActivity {
 
         TextView nameA = (TextView) findViewById(R.id.teamNameA);
         TextView nameB = (TextView) findViewById(R.id.teamNameB);
-        
+
         // Get the message from the intent
         Intent intent = getIntent();
         gamer1 = intent.getStringExtra(PLAYER_1);
@@ -83,7 +81,6 @@ public class ScoreKeeper extends AppCompatActivity {
 
         super.onRestoreInstanceState(savedInstanceState);
     }
-
 
     /**
      * Display the given score for the Team A.

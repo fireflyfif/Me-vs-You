@@ -12,16 +12,13 @@ public class MainActivity extends AppCompatActivity {
     public static final String PLAYER_1 = "team_a_name";
     public static final String PLAYER_2 = "team_b_name";
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
     }
 
-    public void buttonStart (View view) {
+    public void buttonStart(View view) {
         Intent startNewActivity = new Intent(this, ScoreKeeper.class);
 
         EditText player1 = (EditText) findViewById(R.id.player_1);

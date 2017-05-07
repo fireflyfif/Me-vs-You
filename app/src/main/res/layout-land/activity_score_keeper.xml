@@ -18,23 +18,18 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <LinearLayout
-                style="@style/LinearLayoutVertical"
-                android:paddingBottom="10dp">
-
+            <LinearLayout style="@style/LinearLayoutVertical">
 
                 <TextView
                     android:id="@+id/teamNameA"
                     style="@style/teamNameText"
                     android:text="@string/team_a_text" />
 
-
                 <ImageView
                     android:id="@+id/spinnerImage"
                     style="@style/playersImages"
                     android:contentDescription="@string/image_player"
                     android:src="@drawable/pen_drawings_01_" />
-
 
                 <TextView
                     android:id="@+id/team_a_score"
@@ -67,16 +62,12 @@
                 android:contentDescription="@string/image_divider"
                 android:src="@drawable/divider" />
 
-            <LinearLayout
-                style="@style/LinearLayoutVertical"
-                android:paddingBottom="10dp">
-
+            <LinearLayout style="@style/LinearLayoutVertical">
 
                 <TextView
                     android:id="@+id/teamNameB"
                     style="@style/teamNameText"
                     android:text="@string/team_b_text" />
-
 
                 <ImageView
                     style="@style/playersImages"
@@ -106,10 +97,8 @@
                     android:onClick="submitMinusOnePointForTeamB"
                     android:text="@string/button_three_points" />
 
-
             </LinearLayout>
         </LinearLayout>
-
 
         <LinearLayout
             android:id="@+id/linearHor2"
@@ -126,9 +115,7 @@
                 android:onClick="finish"
                 android:text="@string/button_finish" />
 
-
         </LinearLayout>
-
 
     </LinearLayout>
 </ScrollView>
