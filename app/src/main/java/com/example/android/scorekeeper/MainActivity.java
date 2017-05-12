@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         String gamer2 = player2.getText().toString();
 
         // If name is not logged
-        if (gamer1.isEmpty() && gamer2.isEmpty()) {
+        if (gamer1.isEmpty() || gamer2.isEmpty()) {
             Toast.makeText(this, getString(R.string.start_quiz_noName),
                     Toast.LENGTH_SHORT).show();
             return;
